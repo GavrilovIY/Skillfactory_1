@@ -70,12 +70,12 @@ if __name__ == '__main__':
         input_data = input("""Введите координаты от 0 до 2 через любой разделитель 
         (1-ый элемент это строка, 2-ой это столбец). Пример: 0,1 или 0 1 или 0; 1""")
         pos = re.findall(r"[\w']+", input_data)
-        if len(pos)<=2:
+        if len(pos) == 2:
             if pos[0].isdigit() and pos[1].isdigit():
                 pos = tuple(map(int, pos))
                 if pos[0] == 9:
                     break
-                elif pos[0] <= 1 and pos[1] <= 1:
+                elif pos[0] <= 2 and pos[1] <= 2:
                     if play_desk[pos[0]][pos[1]] == '-':
                         change_element(play_desk, pos, Type)
                         cont = print_desk(play_desk, Type)
@@ -91,7 +91,7 @@ if __name__ == '__main__':
                 print('Проверьте корректность ввода')
                 continue
         else:
-            print('Количество элементов болше одного')
+            print('Количество элементов должно быть равно 2')
             continue
 
 
