@@ -22,5 +22,5 @@ if __name__ == '__main__':
         guest.init_from_dict(person)
         invite_list.append(guest)
 
-
-    print([guest.print_money_status() for guest in invite_list])
+    for guest in invite_list:
+        guest.print_money_status()
