@@ -1,10 +1,32 @@
 import requests
 import json
+from collections import defaultdict
 from config import keys
 
 
 class ConvertionExseption(Exception):
     pass
+
+
+class UserInfo:
+    def __init__(self):
+        self.f = 'RUB'
+        self.t = 'USD'
+
+
+class UserDB:
+    def __init__(self):
+        self.db = defaultdict(UserInfo)
+
+    def change_from(self, user_id, val):
+        self.db[user_id].f = val
+
+    def change_to(self, user_id, val):
+        self.db[user_id].t = val
+
+    def get_pair(self,user_id):
+        user = self.db[user_id]
+        return user.f, user.t
 
 
 class CryptoConverter:
@@ -14,16 +36,8 @@ class CryptoConverter:
 
         if quote == base:
             raise ConvertionExseption(f'Невозможно перевести одинаковаые валюты {base}.')
-
-        try:
-            quote_ticker = keys[quote]
-        except KeyError:
-            raise ConvertionExseption(f'Не удалось обработать валюту {quote}')
-
-        try:
-            base_ticker = keys[base]
-        except KeyError:
-            raise ConvertionExseption(f'Не удалось обработать валюту {base}')
+        quote_ticker = quote
+        base_ticker = base
 
         try:
             amount = float(amount)
