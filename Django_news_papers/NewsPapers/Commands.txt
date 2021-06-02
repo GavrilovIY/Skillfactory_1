@@ -1,0 +1,63 @@
+>>> from news.models import *
+>>> user1 = User.objects.create_user(username = 'Pushkin')
+>>> user2 = User.objects.create_user(username = 'Esenin')
+>>> author1 = Author.objects.create(user = user1)
+>>> author2 = Author.objects.create(user = user2)
+>>> category1 = Category.objects.create(news_category = 'sport')
+>>> category2 = Category.objects.create(news_category = 'politics')
+>>> category3 = Category.objects.create(news_category = 'culture')
+>>> category4 = Category.objects.create(news_category = 'education')
+>>> post1 = Post.objects.create(post_author_rating = author1, selection_field = 'PA",title = 'Father and Son', text = 'There is a text about problem of son on father')
+>>> post2 = Post.objects.create(post_author_rating = author2, selection_field = 'PA",title = 'About russian tree', text = 'There is a text russian white treepost')
+>>> post3 = Post.objects.create(post_author_rating = author2, selection_field = 'NE',title = 'Esenin son', text = 'Son is emigrte in USA')
+>>> post1.category.add(category1,category4)
+>>> post2.category.add(category2,category3)
+>>> post3.category.add(category2,category3)
+>>> com1 = Comment.objects.create(comment_post = Post.objects.get(id = 1), comment_user = User.objects.get(id = 2), text = 'Cool!!!')
+>>> com2 = Comment.objects.create(comment_post = Post.objects.get(title = 'About russian tree'), comment_user = User.objects.get(username = 'Alesha'), text = 'It is difficult to read')
+>>> com3 = Comment.objects.create(comment_post = Post.objects.get(selection_field = 'NE'), comment_user = User.objects.get(username = 'Alesha'), text = 'It is difficult to read')
+>>> com4 = Comment.objects.create(comment_post = Post.objects.get(title = 'Father and Son'), comment_user = User.objects.get(username = 'Esenin'), text = 'Perfect!!!!')
+>>> post[0].like()
+>>> post[1].like()
+>>> post[1].like()
+>>> post[2].like()
+>>> post[2].like()
+>>> post[2].like()
+>>> post[2].like()
+>>> post[2].dislike()
+>>> com2.like()
+>>> com2.like()
+>>> com2.like()
+>>> com1.like()
+>>> com1.like()
+>>> com1.like()
+>>> for _ in range(3):
+...     com3.like()
+>>> for _ in range(5):
+...     com4.like()
+>>> com3.dislike()
+>>> com3.dislike()
+>>> com2.like()
+>>> auth1.update_rating()
+>>> auth1.user_rating
+11
+>>> auth2.update_rating()
+>>> auth2.user_rating
+28
+>>> User.objects.all().order_by('-author__user_rating').values()[0]
+{'id': 2, 'password': '!nrEHNdUTnwtcfgBxI28FzBTQR2DRzQ59dP1VahQR', 'last_login': None, 'is_superuser': False, 'user
+name': 'Esenin', 'first_name': '', 'last_name': '', 'email': '', 'is_staff': False, 'is_active': True, 'date_joined
+': datetime.datetime(2021, 5, 31, 21, 0, 20, 802010, tzinfo=<UTC>)}
+>>> Post.objects.all().order_by('-post_rating').values('post_author_rating__user__username','post_rating','title')
+[0]
+{'post_author_rating__user__username': 'Esenin', 'post_rating': 3, 'title': 'Esenin son'}
+>>> Post.objects.all().get(title = Post.objects.all().order_by('-post_rating').values('title')[0]['title']).preview()
+'Son is emigrte in USA...'
+>>> max_rating = Post.objects.aggregate(max_postRating = Max('post_rating'))
+>>> best_post = Post.objects.get(post_rating = max_rating.get('max_postRating'))
+>>> Comment.objects.all().filter(comment_post = best_post).values('time_create','comment_user__username','comment_rating','text')
+<QuerySet [{'time_create': datetime.datetime(2021, 6, 1, 13, 8, 12, 465099, tzinfo=<UTC>), 'comment_user__username': 'Alesha', 'comment_rating': 1, 'text': 'It is difficult to read'}]>
+
+
+
+
