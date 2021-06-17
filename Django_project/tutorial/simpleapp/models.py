@@ -23,7 +23,7 @@ class Product(models.Model):
     )
 
     def __str__(self):
-        return f'{self.name.title()}: {self.description[:20]}'
+        return f'{self.name}: {self.quantity}'
 
 
 #  создаём категорию, к которой будет привязываться товар
@@ -31,4 +31,4 @@ class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)  # названия категорий тоже не должны повторяться
 
     def __str__(self):
-        return f'{self.name.title()}'
+        return f'{self.name}'
