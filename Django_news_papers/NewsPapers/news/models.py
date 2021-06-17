@@ -20,6 +20,9 @@ class Author(models.Model):
                 'authRating')
         self.save()
 
+    def __str__(self):
+        return f'{self.user.name.title()}'
+
 
 class Category(models.Model):
     news_category = models.CharField(max_length=255, unique=True)
@@ -50,6 +53,9 @@ class Post(models.Model):
     def dislike(self):
         self.post_rating -= 1
         self.save()
+
+    def __str__(self):
+        return f'{self.title.title()}'
 
 
 class PostCategory(models.Model):

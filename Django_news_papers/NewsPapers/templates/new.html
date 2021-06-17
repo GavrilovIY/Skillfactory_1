@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+<b> {{new.title}} </b>
+<br>
+<p>{{ new.text }}</p>
+<br>
+<i> {{ new.time_add|date:'d-M-Y H:i'}} </i>
+{% endblock content %}
+</body>
+</html>
