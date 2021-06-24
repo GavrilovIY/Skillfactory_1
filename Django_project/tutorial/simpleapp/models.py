@@ -10,13 +10,11 @@ class Product(models.Model):
     )
     description = models.TextField()
     quantity = models.IntegerField(
-        validators=[MinValueValidator(0)],
     )
     # поле категории будет ссылаться на модель категории
     category = models.ForeignKey(
-        to='Category',
+        'Category',
         on_delete=models.CASCADE,
-        related_name='products',  # все продукты в категории будут доступны через поле products
     )
     price = models.FloatField(
         validators=[MinValueValidator(0.0)],
@@ -24,6 +22,9 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.name}: {self.quantity}'
+
+    def get_absolute_url(self):
+        return f'/products/{self.id}'
 
 
 #  создаём категорию, к которой будет привязываться товар

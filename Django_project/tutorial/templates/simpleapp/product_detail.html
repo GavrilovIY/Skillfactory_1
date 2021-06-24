@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% extends 'simpleapp/default.html' %}
+
+{% block title %} Product list {% endblock title %}
+
+{% block content %}
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </thead>
+    <tr>
+        <th>
+            {{ product.name|title }}
+        </th>
+        <th>
+            {{ product.category.name|title }}
+        </th>
+        <th>
+            {{ product.price }}
+        </th>
+        <th>
+            {{ product.quantity }}
+        </th>
+    </tr>
+</table>
+{% endblock content %}
+</body>
+</html>

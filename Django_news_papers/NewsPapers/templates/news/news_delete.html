@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'news/default.html' %}
+
+{% block title %} News {% endblock title %}
+
+{% block content %}
+
+<h2>Вы действительно хотите удалить данную статью?</h2>
+<b> {{new.title}} </b>
+<br>
+<p>{{ new.text }}</p>
+<br>
+<i> {{ new.time_add|date:'d-M-Y H:i'}} </i>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="подтвердить">
+</form>
+{% endblock content %}
+</body>
+</html>

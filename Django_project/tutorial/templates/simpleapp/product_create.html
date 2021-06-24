@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'simpleapp/default.html' %}
+
+{% block title %} Product list {% endblock title %}
+
+{% block content %}
+<h3>Информация о товаре</h3>
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Добавить товар">
+</form>
+{% endblock content %}
+
+</body>
+</html>

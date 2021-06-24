@@ -21,11 +21,14 @@ class Author(models.Model):
         self.save()
 
     def __str__(self):
-        return f'{self.user.name.title()}'
+        return f'{self.user.username}'
 
 
 class Category(models.Model):
     news_category = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        return f'{self.news_category}'
 
 
 class Post(models.Model):
@@ -56,6 +59,9 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.title.title()}'
+
+    def get_absolute_url(self):
+        return f'/news/{self.id}'
 
 
 class PostCategory(models.Model):

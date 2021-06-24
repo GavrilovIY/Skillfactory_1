@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'news/default.html' %}
+
+{% load custom_filters %}
+
+
+{% block title %}
+Posts search
+{% endblock title %}
+
+{% block content %}
+<form method="GET">
+    {{filter.form}}
+    <input type="submit" value="Найти">
+</form>
+
+<h1>Все статьи</h1>
+<hr>
+{% if filter.qs %}
+    <table>
+        <tr>
+            <td>Заголовок</td>
+            <td>Дата публикации</td>
+            <td>Описание</td>
+        </tr>
+        {% for new in filter.qs %}
+        <tr>
+            <td>{{ new.title|censour:'ass,xer' }}</td>
+            <td>{{ new.time_add|date:'Y-M-d' }}</td>
+            <td>{{ new.text|censour:'ass,xer'|truncatechars:50 }}  </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <h2>Публикаций нет</h2>
+{% endif %}
+{% endblock content %}
+</body>
+</html>
