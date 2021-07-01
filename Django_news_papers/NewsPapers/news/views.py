@@ -1,10 +1,12 @@
-from django.views.generic import ListView, DetailView,\
-    CreateView, UpdateView, DeleteView  # импортируем класс, который говорит нам о том, что в этом представлении мы будем выводить список объектов из БД
-from .models import Post
+from django.views.generic import ListView, DetailView, \
+    CreateView, UpdateView, \
+    DeleteView  # импортируем класс, который говорит нам о том, что в этом представлении мы будем выводить список объектов из БД
+
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from .filters import PostFilter
 from .forms import PostForm
-from datetime import datetime
+from .models import Post
 
 
 class PostList(ListView):
@@ -32,13 +34,15 @@ class PostSearch(ListView):
         return context
 
 
-class PostCreateView(CreateView):
+class PostCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'news/news_create.html'
+    permission_required = ('news.add_post',)
     form_class = PostForm
 
 
-class PostUpdateView(UpdateView):
+class PostUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = 'news/news_create.html'
+    permission_required = ('news.change_post',)
     form_class = PostForm
 
     def get_object(self, **kwargs):

@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import PostList, PostDetail, PostSearch,\
+
+from .views import PostList, PostDetail, PostSearch, \
     PostCreateView, PostUpdateView, PostDeleteView  # импортируем наше представление
 
 urlpatterns = [

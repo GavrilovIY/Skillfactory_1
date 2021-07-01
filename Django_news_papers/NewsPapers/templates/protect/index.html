@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "main.html" %}
+
+{% block content %}
+<h2>Страница авторизованного пользователя {{request.user.username}}</h2>
+<div> Здесь может содержаться персональная информация для каждого пользователя </div>
+
+<button> <a href="sign/logout/">Выйти</a> </button>
+<button> <a href="news/"> Статьи </a> </button>
+{% if is_not_premium %}
+<button> <a href="sign/upgrade/"> Стать автором! </a> </button>
+{% endif %}
+{% endblock %}
+</body>
+</html>
