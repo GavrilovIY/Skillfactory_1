@@ -26,9 +26,14 @@ class Author(models.Model):
 
 class Category(models.Model):
     news_category = models.CharField(max_length=255, unique=True)
+    subscribers = models.ManyToManyField(User, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
 
     def __str__(self):
-        return f'{self.news_category}'
+        return self.news_category
 
 
 class Post(models.Model):
@@ -67,6 +72,10 @@ class Post(models.Model):
 class PostCategory(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return f'Катгория: {self.category.news_category}. Публикация: {self.post.title}'
 
 
 class Comment(models.Model):

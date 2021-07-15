@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.shortcuts import redirect
-from news.models import Author
+from news.models import Author, Category
 
 
 @login_required
@@ -13,3 +13,4 @@ def upgrade_me(request):
     if not Author.objects.filter(user=user).exists():
         Author.objects.create(user=user)
     return redirect('/')
+
