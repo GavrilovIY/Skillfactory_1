@@ -1,0 +1,128 @@
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /accounts/login/?next=/ HTTP/1.1" 200 1655
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2686
+"POST /accounts/login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 841
+"GET /news/ HTTP/1.1" 200 4478
+"GET /static/css/styles.css HTTP/1.1" 200 182848
+"GET /static/js/scripts.js HTTP/1.1" 200 303
+"GET /news/5 HTTP/1.1" 200 3699
+C:\Projects\Skillfactory\Django_news_papers\NewsPapers\NewsPapers\settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO "GET /news/ HTTP/1.1" 200 4478
+INFO "GET / HTTP/1.1" 200 841
+INFO "GET /news/categories HTTP/1.1" 301 0
+WARNING Forbidden (Permission denied): /news/categories/
+Traceback (most recent call last):
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\contrib\auth\mixins.py", line 103, in dispatch
+    return self.handle_no_permission()
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\contrib\auth\mixins.py", line 46, in handle_no_permission
+    raise PermissionDenied(self.get_permission_denied_message())
+django.core.exceptions.PermissionDenied
+WARNING "GET /news/categories/ HTTP/1.1" 403 135
+INFO "GET /sign/upgrade/ HTTP/1.1" 302 0
+INFO "GET / HTTP/1.1" 200 764
+WARNING Forbidden (Permission denied): /news/categories/
+Traceback (most recent call last):
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\contrib\auth\mixins.py", line 103, in dispatch
+    return self.handle_no_permission()
+  File "C:\Projects\Skillfactory\Django_news_papers\venv\lib\site-packages\django\contrib\auth\mixins.py", line 46, in handle_no_permission
+    raise PermissionDenied(self.get_permission_denied_message())
+django.core.exceptions.PermissionDenied
+WARNING "GET /news/categories/ HTTP/1.1" 403 135
+INFO "GET /admin HTTP/1.1" 301 0
+INFO "GET /admin/ HTTP/1.1" 302 0
+INFO "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2502
+INFO "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO "GET /static/admin/css/login.css HTTP/1.1" 200 939
+INFO "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 1360
+INFO "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+INFO "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 85876
+INFO "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 86184
+INFO "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 85692
+INFO "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO "GET /admin/ HTTP/1.1" 200 12018
+INFO "GET /static/admin/css/dashboard.css HTTP/1.1" 200 380
+INFO "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO "GET /admin/news/category/ HTTP/1.1" 200 10812
+INFO "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3195
+INFO "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO "GET /static/admin/js/core.js HTTP/1.1" 200 5698
+INFO "GET /static/admin/js/urlify.js HTTP/1.1" 200 7902
+INFO "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 5984
+INFO "GET /static/admin/js/actions.js HTTP/1.1" 200 7664
+INFO "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 287630
+INFO "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO "GET /admin/news/author/ HTTP/1.1" 200 10712
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3195
+INFO "GET /admin/news/author/5/change/ HTTP/1.1" 200 11201
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3195
+INFO "GET /static/admin/css/forms.css HTTP/1.1" 200 8804
+INFO "GET /static/admin/css/widgets.css HTTP/1.1" 200 11097
+INFO "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 492
+INFO "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO "GET /admin/auth/user/ HTTP/1.1" 200 15054
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3195
+INFO "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO "GET /admin/auth/user/3/change/ HTTP/1.1" 200 23475
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 3195
+INFO "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4360
+INFO "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+INFO "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 12350
+INFO "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19634
+INFO "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO C:\Projects\Skillfactory\Django_news_papers\NewsPapers\NewsPapers\settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO C:\Projects\Skillfactory\Django_news_papers\NewsPapers\NewsPapers\settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 765
+INFO "GET /news/ HTTP/1.1" 200 4478
+INFO "GET /news/categories/ HTTP/1.1" 200 2870
+INFO "GET /news/categories/1 HTTP/1.1" 200 154
+INFO "GET / HTTP/1.1" 200 765
+INFO C:\Projects\Skillfactory\Django_news_papers\NewsPapers\NewsPapers\settings.py changed, reloading.
+2021-09-20 22:21:19,384 INFO Watching for file changes with StatReloader
+2021-09-20 22:21:25,672 INFO "GET /news/ HTTP/1.1" 200 4478
+2021-09-20 22:36:36,477 INFO C:\Projects\Skillfactory\Django_news_papers\NewsPapers\NewsPapers\settings.py changed, reloading.
+2021-09-20 22:36:38,920 INFO Watching for file changes with StatReloader
+2021-09-20 22:39:25,109 INFO C:\Projects\Skillfactory\Django_news_papers\NewsPapers\NewsPapers\settings.py changed, reloading.
+2021-09-20 22:39:27,442 INFO Watching for file changes with StatReloader
+2021-09-20 22:39:38,343 INFO "GET /news/ HTTP/1.1" 200 4478
+2021-09-20 22:39:42,581 INFO "GET /news/5 HTTP/1.1" 200 3699
+2021-09-20 22:40:40,917 INFO C:\Projects\Skillfactory\Django_news_papers\NewsPapers\NewsPapers\settings.py changed, reloading.
+2021-09-20 22:42:14,406 INFO Watching for file changes with StatReloader
+2021-09-20 22:42:23,565 INFO "GET /news/ HTTP/1.1" 200 4478
+2021-09-20 22:44:08,218 INFO C:\Projects\Skillfactory\Django_news_papers\NewsPapers\NewsPapers\settings.py changed, reloading.
+2021-09-20 22:44:10,293 INFO Watching for file changes with StatReloader
+2021-09-20 22:44:57,246 INFO C:\Projects\Skillfactory\Django_news_papers\NewsPapers\NewsPapers\settings.py changed, reloading.

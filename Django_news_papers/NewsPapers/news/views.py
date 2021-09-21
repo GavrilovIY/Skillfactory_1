@@ -8,6 +8,7 @@ from django.dispatch import receiver
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models.signals import post_save
 from django.core.mail import send_mail
+from django.core.cache import cache
 
 from .filters import PostFilter
 from .forms import PostForm
@@ -15,7 +16,9 @@ from .models import Post, Category, User
 
 import datetime
 
+import logging
 
+logger = logging.getLogger(__name__)
 
 
 
@@ -66,6 +69,16 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'new.html'
     context_object_name = 'new'
+    queryset = Post.objects.all()
+
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'post-{self.kwargs["pk"]}',None)
+
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'post-{self.kwargs["pk"]}',obj)
+
+        return obj
 
 
 class PostSearch(ListView):

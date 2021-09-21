@@ -1,6 +1,8 @@
-def iter(a,b):
-    for i in range(b):
-        yield a+0.1*i
+import redis
 
-for i in iter(1,5):
-    print(i)
+red =redis.Redis(
+    host = 'redis-11270.c81.us-east-1-2.ec2.cloud.redislabs.com',
+    port=11270,
+    password='EuBtx2rzRXsHYJuoI8rXvKbeT57wbIb1'
+)
+
