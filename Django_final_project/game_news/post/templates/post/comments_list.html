@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>My comments</h1>
+
+    <form method="GET">
+        {{ filter.form }} 
+        <input type="submit" value="Найти">
+    </form>
+
+    {% if filter.qs %}
+    <ul>
+
+      {% for comment in filter.qs %}
+      <li>
+        <p>{{comment.post}}</p>    
+      <p>{{comment.cooment}}</p>
+      <p>{{comment.author}}</p>
+      <p>
+        {% if comment.status%}
+          <strong>Комментарий принят</strong>
+        {%else%}
+        <strong>Ещё нет!!!!</strong>
+        <a href="{% url 'comment_append' comment.pk %}">Принять?</a>
+        <a href="{% url 'comment_delete' comment.pk %}">Удалить?</a>
+  
+        {%endif%}
+      
+      
+      </p>
+
+      <hr>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no posts.</p>
+    {% endif %}
+{% endblock %}

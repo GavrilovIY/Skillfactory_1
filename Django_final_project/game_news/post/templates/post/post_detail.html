@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  
+
+  <h1>Title: {{ post.title }}</h1>
+
+  <p><strong>Type post:</strong> {{post.get_type_post_display}} </p>
+  <p><strong>Text:</strong> </p>
+  <p>{{ post.text }}</p>
+  <p><strong>Upload:</strong> </p>
+  <img src="{{post.upload.url}}" alt="альтернативный текст">
+  <p><strong>Data:</strong> {{ post.data }}</p>
+
+  <p><strong>Comments:</strong><p/>
+
+  {% for comment in post.comments_set.all%}
+    <p>Text: {{comment.cooment}}</p>
+    <p>{{comment.author}}</p>
+    <p>
+      {% if comment.status%}
+        <strong>Комментарий принят</strong>
+      {%else%}
+      <strong>Ещё нет!!!!</strong>
+      <a href="{% url 'comment_append' comment.pk %}">Принять?</a>
+      <a href="{% url 'comment_delete' comment.pk %}">Удалить?</a>
+
+      {%endif%}
+    
+    
+    </p>
+    <hr>
+  {%endfor%}
+  
+{% endblock %}

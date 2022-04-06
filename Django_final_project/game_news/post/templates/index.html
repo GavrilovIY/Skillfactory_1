@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Posts List</h1>
+
+    {% if posts %}
+    <ul>
+
+      {% for post in posts %}
+      <p>
+        {{post.title}} Author: {{post.authort}}
+
+      </p>
+      {% if user.is_authenticated %}
+      <p>
+        <a href="{% url 'add_comment' post.pk %}">Add comment</a>
+      </p>
+      {% endif %}
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no books in the library.</p>
+    {% endif %} 
+{% endblock %}
